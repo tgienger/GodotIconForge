@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://cmb8rbvramn57"]
+[gd_scene load_steps=82 format=3 uid="uid://cmb8rbvramn57"]
 
 [ext_resource type="Script" path="res://addons/godot-icon-forge/main.gd" id="1_4hhk6"]
 [ext_resource type="Texture2D" uid="uid://m8ct60ic3k1y" path="res://addons/godot-icon-forge/icons/save.png" id="1_8sldd"]
@@ -77,7 +77,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a0iuw"]
 render_priority = 0
 shader = ExtResource("45_mgpra")
-shader_parameter/bg_color = Color(0.454902, 0.12549, 0.12549, 0)
+shader_parameter/bg_color = Color(0.231628, 0.234375, 0.232058, 1)
 shader_parameter/image = ExtResource("46_7n7rt")
 shader_parameter/mask = ExtResource("46_7n7rt")
 
@@ -86,7 +86,7 @@ bg_color = Color(0.266575, 0.266575, 0.266575, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t8e7m"]
 shader = ExtResource("39_vsd1y")
-shader_parameter/BorderColor = Color(0.617188, 0.429138, 0.429138, 1)
+shader_parameter/BorderColor = Color(0.710938, 0.604323, 0.186066, 1)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gjpic"]
 energy_multiplier = 2.0
@@ -110,9 +110,6 @@ size = Vector2(512, 511)
 color = Color(0.581033, 0.581033, 0.581033, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_02n6d"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_s6j5w"]
-viewport_path = NodePath("MarginContainer/Editor/HSplitContainer/ViewPort/ScrollContainer/CenterContain/Window/ViewportContainer/SubViewportContainer/MainView")
 
 [node name="GodotIconForge" type="Control" node_paths=PackedStringArray("camera", "file_dialog", "file_location_label", "save_as_edit", "item_file_dialog", "add_item", "bitmask_check", "scale_option", "show_preview_checkbox", "bg_toggle", "color_picker", "bg_image_dialog", "border_checkbox", "margin_spinbox", "border_color_picker", "degree_spinbox")]
 layout_mode = 3
@@ -230,7 +227,6 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_cvf34")
 [node name="BackgroundImage" type="Sprite3D" parent="MarginContainer/Editor/HSplitContainer/ViewPort/ScrollContainer/CenterContain/Window"]
 unique_name_in_owner = true
 transform = Transform3D(0.195, 0, 0, 0, 0.195, 0, 0, 0, 0.195, 0, 0, -5)
-visible = false
 material_override = SubResource("ShaderMaterial_a0iuw")
 cast_shadow = 0
 gi_mode = 0
@@ -256,6 +252,7 @@ layout_mode = 2
 unique_name_in_owner = true
 transparent_bg = true
 handle_input_locally = false
+size = Vector2i(128, 128)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="MarginContainer/Editor/HSplitContainer/ViewPort/ScrollContainer/CenterContain/Window/ViewportContainer/SubViewportContainer/MainView"]
@@ -268,7 +265,6 @@ unique_name_in_owner = true
 
 [node name="BorderRect" type="NinePatchRect" parent="MarginContainer/Editor/HSplitContainer/ViewPort/ScrollContainer/CenterContain/Window/ViewportContainer/SubViewportContainer/MainView/Camera3D/BorderCanvas"]
 unique_name_in_owner = true
-visible = false
 texture_filter = 1
 material = SubResource("ShaderMaterial_t8e7m")
 anchors_preset = 15
@@ -276,11 +272,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_x1lo5")
-patch_margin_left = 13
-patch_margin_top = 13
-patch_margin_right = 13
-patch_margin_bottom = 13
+texture = ExtResource("18_h8kxv")
+patch_margin_left = 18
+patch_margin_top = 18
+patch_margin_right = 18
+patch_margin_bottom = 18
 
 [node name="IconCanvas" type="CanvasLayer" parent="MarginContainer/Editor/HSplitContainer/ViewPort/ScrollContainer/CenterContain/Window/ViewportContainer/SubViewportContainer/MainView/Camera3D"]
 visible = false
@@ -337,6 +333,7 @@ stretch_mode = 0
 
 [node name="OmniLightButton" type="MarginContainer" parent="MarginContainer/Editor/HSplitContainer/ViewPort/ScrollContainer/CenterContain/Window/ViewportContainer"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -553,7 +550,7 @@ unique_name_in_owner = true
 layout_mode = 2
 min_value = 1.0
 max_value = 512.0
-value = 64.0
+value = 128.0
 suffix = "px"
 
 [node name="Label2" type="Label" parent="MarginContainer/HBoxContainer2/Options/ImgSize"]
@@ -565,7 +562,7 @@ unique_name_in_owner = true
 layout_mode = 2
 min_value = 1.0
 max_value = 512.0
-value = 64.0
+value = 128.0
 suffix = "px"
 
 [node name="UniformToggle" type="TextureButton" parent="MarginContainer/HBoxContainer2/Options/ImgSize"]
@@ -578,6 +575,7 @@ texture_hover = ExtResource("37_0gool")
 
 [node name="ShowPreviewCheckbox" type="CheckButton" parent="MarginContainer/HBoxContainer2/Options"]
 layout_mode = 2
+button_pressed = true
 text = "preview size"
 
 [node name="BorderLine5" type="PanelContainer" parent="MarginContainer/HBoxContainer2/Options"]
@@ -586,7 +584,6 @@ theme_override_styles/panel = SubResource("StyleBoxLine_injvt")
 
 [node name="BitmaskCheck" type="CheckButton" parent="MarginContainer/HBoxContainer2/Options"]
 layout_mode = 2
-button_pressed = true
 text = "create mask"
 
 [node name="BorderLine" type="PanelContainer" parent="MarginContainer/HBoxContainer2/Options"]
@@ -606,6 +603,7 @@ theme_override_constants/separation = 4
 [node name="BacktroundCheckbutton" type="CheckButton" parent="MarginContainer/HBoxContainer2/Options/BackgroundSection"]
 layout_mode = 2
 size_flags_horizontal = 3
+button_pressed = true
 text = "visible"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer2/Options"]
@@ -641,7 +639,7 @@ text = "Reset
 layout_mode = 2
 action_mode = 0
 text = "Background Color"
-color = Color(0.454902, 0.12549, 0.12549, 0)
+color = Color(0.231628, 0.234375, 0.232058, 1)
 
 [node name="BorderLine3" type="PanelContainer" parent="MarginContainer/HBoxContainer2/Options"]
 layout_mode = 2
@@ -679,7 +677,7 @@ text = "patch margin: "
 [node name="BorderMarginSpinbox" type="SpinBox" parent="MarginContainer/HBoxContainer2/Options/BorderMargin"]
 layout_mode = 2
 theme_override_icons/updown = ExtResource("52_y6ema")
-value = 13.0
+value = 18.0
 
 [node name="BorderStyle" type="HBoxContainer" parent="MarginContainer/HBoxContainer2/Options"]
 layout_mode = 2
@@ -711,7 +709,7 @@ stretch_mode = 5
 [node name="BorderColorPicker" type="ColorPickerButton" parent="MarginContainer/HBoxContainer2/Options"]
 layout_mode = 2
 text = "Background Color"
-color = Color(0.617188, 0.429138, 0.429138, 1)
+color = Color(0.710938, 0.604323, 0.186066, 1)
 
 [node name="Controls" type="MarginContainer" parent="MarginContainer/HBoxContainer2"]
 layout_mode = 2
@@ -829,27 +827,6 @@ ok_button_text = "Open"
 dialog_hide_on_ok = true
 file_mode = 1
 filters = PackedStringArray("*.tscn", "*.gltf", "*.glb", "*.obj", "*.png", "*.svg", "*.jpg", "*.jpeg", "*.webp", "*.tga", "*.dds")
-
-[node name="Preview" type="TextureRect" parent="."]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -50.0
-offset_top = -50.0
-offset_right = 14.0
-offset_bottom = 14.0
-grow_horizontal = 0
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 0
-texture = SubResource("ViewportTexture_s6j5w")
-expand_mode = 1
-stretch_mode = 5
 
 [connection signal="border_color_changed" from="MarginContainer/Editor/HSplitContainer/Sidebar" to="." method="_set_border_color"]
 [connection signal="light_type_changed" from="MarginContainer/Editor/HSplitContainer/Sidebar" to="." method="_on_light_type_changed"]
