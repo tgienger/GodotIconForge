@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dmn7njs1f4kny"
+path="res://.godot/imported/plus_m.bmp-cd9a4a8c89aad8a565b0b07eb42f2a31.res"
+
+[deps]
+
+source_file="res://addons/godot-icon-forge/icons/plus_m.bmp"
+dest_files=["res://.godot/imported/plus_m.bmp-cd9a4a8c89aad8a565b0b07eb42f2a31.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

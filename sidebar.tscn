@@ -1,0 +1,533 @@
+[gd_scene load_steps=13 format=3 uid="uid://257xeoaout06"]
+
+[ext_resource type="Texture2D" uid="uid://m8ct60ic3k1y" path="res://addons/godot-icon-forge/icons/save.png" id="1_1ut6g"]
+[ext_resource type="Script" path="res://addons/godot-icon-forge/sidebar.gd" id="1_rixeo"]
+[ext_resource type="Texture2D" uid="uid://irrt0s6530np" path="res://addons/godot-icon-forge/icons/link.png" id="2_p02be"]
+[ext_resource type="Texture2D" uid="uid://blk52pnvbgfd" path="res://addons/godot-icon-forge/icons/link_broken.png" id="3_nv25x"]
+[ext_resource type="Texture2D" uid="uid://cuovaaocssg6f" path="res://addons/godot-icon-forge/icons/link_hover.png" id="4_m0gby"]
+[ext_resource type="Texture2D" uid="uid://5adyurt71ewb" path="res://addons/godot-icon-forge/icons/maximize16.png" id="5_gxsra"]
+[ext_resource type="Texture2D" uid="uid://dq30vrsxjgxqq" path="res://addons/godot-icon-forge/icons/left_20.png" id="6_l3xak"]
+[ext_resource type="Texture2D" uid="uid://v3r6121oqjwh" path="res://addons/godot-icon-forge/icons/right_20.png" id="7_gcswm"]
+[ext_resource type="ButtonGroup" uid="uid://bvy5gwcqm8ru3" path="res://addons/godot-icon-forge/LightButtonGroup.tres" id="9_wa2jy"]
+[ext_resource type="Texture2D" uid="uid://1xrc7gbmm1eg" path="res://controls/PNG/White/1x/return.png" id="10_e2bq4"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_qc8an"]
+color = Color(0.581033, 0.581033, 0.581033, 1)
+
+[sub_resource type="ImageTexture" id="ImageTexture_8s71e"]
+
+[node name="Sidebar" type="VSplitContainer"]
+custom_minimum_size = Vector2(350, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 350
+script = ExtResource("1_rixeo")
+default_bg_image = "res://addons/godot-icon-forge/icons/background.png"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="TabContainer" parent="MarginContainer"]
+layout_mode = 2
+current_tab = 0
+
+[node name="File" type="Control" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/File"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/File/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Label4" type="Label" parent="MarginContainer/PanelContainer/File/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "save location"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/File/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FileLocation" type="Label" parent="MarginContainer/PanelContainer/File/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "res://{image}.png"
+horizontal_alignment = 1
+
+[node name="ChangeDirectories" type="Button" parent="MarginContainer/PanelContainer/File/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Choose Directory
+"
+
+[node name="BorderLine6" type="PanelContainer" parent="MarginContainer/PanelContainer/File/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxLine_qc8an")
+
+[node name="Label5" type="Label" parent="MarginContainer/PanelContainer/File/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "file name"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/File/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FileNameEdit" type="TextEdit" parent="MarginContainer/PanelContainer/File/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "{file_name}
+"
+
+[node name="FileType" type="OptionButton" parent="MarginContainer/PanelContainer/File/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "png"
+popup/item_1/text = "jpg"
+popup/item_1/id = 1
+popup/item_2/text = "webp"
+popup/item_2/id = 2
+
+[node name="SaveAs" type="TextureButton" parent="MarginContainer/PanelContainer/File/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+action_mode = 0
+texture_normal = ExtResource("1_1ut6g")
+stretch_mode = 0
+
+[node name="LoadFIles" type="HBoxContainer" parent="MarginContainer/PanelContainer/File/MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="BorderLine4" type="PanelContainer" parent="MarginContainer/PanelContainer/File/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxLine_qc8an")
+
+[node name="Label3" type="Label" parent="MarginContainer/PanelContainer/File/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "image"
+horizontal_alignment = 1
+
+[node name="ImgSize" type="HBoxContainer" parent="MarginContainer/PanelContainer/File/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/File/MarginContainer/VBoxContainer/ImgSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "size"
+
+[node name="Label3" type="Label" parent="MarginContainer/PanelContainer/File/MarginContainer/VBoxContainer/ImgSize"]
+layout_mode = 2
+text = "x"
+
+[node name="SizeX" type="SpinBox" parent="MarginContainer/PanelContainer/File/MarginContainer/VBoxContainer/ImgSize"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 512.0
+value = 64.0
+suffix = "px"
+
+[node name="Label2" type="Label" parent="MarginContainer/PanelContainer/File/MarginContainer/VBoxContainer/ImgSize"]
+layout_mode = 2
+text = "y"
+
+[node name="SizeY" type="SpinBox" parent="MarginContainer/PanelContainer/File/MarginContainer/VBoxContainer/ImgSize"]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 1.0
+max_value = 512.0
+value = 64.0
+editable = false
+suffix = "px"
+
+[node name="UniformToggle" type="TextureButton" parent="MarginContainer/PanelContainer/File/MarginContainer/VBoxContainer/ImgSize"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("2_p02be")
+texture_pressed = ExtResource("3_nv25x")
+texture_hover = ExtResource("4_m0gby")
+
+[node name="ShowPreviewCheck" type="CheckButton" parent="MarginContainer/PanelContainer/File/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "preview size"
+
+[node name="BorderLine5" type="PanelContainer" parent="MarginContainer/PanelContainer/File/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxLine_qc8an")
+
+[node name="BitmaskCheck" type="CheckButton" parent="MarginContainer/PanelContainer/File/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "create mask"
+
+[node name="Save" type="Control" parent="MarginContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Background" type="Control" parent="MarginContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/Background/MarginContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/PanelContainer/Background/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "background"
+horizontal_alignment = 1
+
+[node name="ShowBackgroundCheck" type="CheckButton" parent="MarginContainer/PanelContainer/Background/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "visible"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/PanelContainer/Background/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/Background/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/Background/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "Bg Scale: "
+
+[node name="BackgroundScale" type="HSlider" parent="MarginContainer/PanelContainer/Background/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.001
+value = 0.195
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/PanelContainer/Background/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ChangeBackgroundImage" type="Button" parent="MarginContainer/PanelContainer/Background/MarginContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Change Image"
+
+[node name="ResetBackgroundImage" type="Button" parent="MarginContainer/PanelContainer/Background/MarginContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Reset
+"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/PanelContainer/Background/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ChangeBackgroundMask" type="Button" parent="MarginContainer/PanelContainer/Background/MarginContainer/VBoxContainer/HBoxContainer5"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Change Mask"
+
+[node name="ResetBackgroundMask" type="Button" parent="MarginContainer/PanelContainer/Background/MarginContainer/VBoxContainer/HBoxContainer5"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Clear"
+
+[node name="BgColorPicker" type="ColorPickerButton" parent="MarginContainer/PanelContainer/Background/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+action_mode = 0
+text = "Background Color"
+color = Color(0.454902, 0.12549, 0.12549, 0)
+
+[node name="Border" type="Control" parent="MarginContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/Border"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/Border/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/Border/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "borders"
+horizontal_alignment = 1
+
+[node name="BorderSection" type="HBoxContainer" parent="MarginContainer/PanelContainer/Border/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/Border/MarginContainer/VBoxContainer/BorderSection"]
+visible = false
+layout_mode = 2
+text = "Border
+"
+
+[node name="ShowBorderCheck" type="CheckButton" parent="MarginContainer/PanelContainer/Border/MarginContainer/VBoxContainer/BorderSection"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "visible"
+
+[node name="BorderMargin" type="HBoxContainer" parent="MarginContainer/PanelContainer/Border/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/Border/MarginContainer/VBoxContainer/BorderMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "patch margin: "
+
+[node name="BorderMarginSpinbox" type="SpinBox" parent="MarginContainer/PanelContainer/Border/MarginContainer/VBoxContainer/BorderMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_icons/updown = ExtResource("5_gxsra")
+value = 13.0
+
+[node name="BorderStyle" type="HBoxContainer" parent="MarginContainer/PanelContainer/Border/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PrevBorder" type="TextureButton" parent="MarginContainer/PanelContainer/Border/MarginContainer/VBoxContainer/BorderStyle"]
+unique_name_in_owner = true
+layout_mode = 2
+action_mode = 0
+texture_normal = ExtResource("6_l3xak")
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/Border/MarginContainer/VBoxContainer/BorderStyle"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "style"
+horizontal_alignment = 1
+
+[node name="NextBorder" type="TextureButton" parent="MarginContainer/PanelContainer/Border/MarginContainer/VBoxContainer/BorderStyle"]
+unique_name_in_owner = true
+layout_mode = 2
+action_mode = 0
+texture_normal = ExtResource("7_gcswm")
+
+[node name="BorderColorPicker" type="ColorPickerButton" parent="MarginContainer/PanelContainer/Border/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Background Color"
+color = Color(0.617188, 0.429138, 0.429138, 1)
+
+[node name="Lights" type="Control" parent="MarginContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/Lights"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 5
+
+[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/PanelContainer/Lights/MarginContainer"]
+layout_mode = 2
+
+[node name="LightButtonGroup" type="VBoxContainer" parent="MarginContainer/PanelContainer/Lights/MarginContainer/VSplitContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/Lights/MarginContainer/VSplitContainer/LightButtonGroup"]
+layout_mode = 2
+text = "Lighting: "
+horizontal_alignment = 1
+
+[node name="AmbientLightButton" type="Button" parent="MarginContainer/PanelContainer/Lights/MarginContainer/VSplitContainer/LightButtonGroup"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("9_wa2jy")
+text = "Ambient"
+
+[node name="OmniLightButton" type="Button" parent="MarginContainer/PanelContainer/Lights/MarginContainer/VSplitContainer/LightButtonGroup"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+action_mode = 0
+button_group = ExtResource("9_wa2jy")
+text = "Omni"
+
+[node name="SpotLIghtButton" type="Button" parent="MarginContainer/PanelContainer/Lights/MarginContainer/VSplitContainer/LightButtonGroup"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("9_wa2jy")
+text = "Spot"
+
+[node name="DirectionalLightButton" type="Button" parent="MarginContainer/PanelContainer/Lights/MarginContainer/VSplitContainer/LightButtonGroup"]
+unique_name_in_owner = true
+layout_mode = 2
+toggle_mode = true
+action_mode = 0
+button_group = ExtResource("9_wa2jy")
+text = "Directional"
+
+[node name="LightOptions" type="Control" parent="MarginContainer/PanelContainer/Lights/MarginContainer/VSplitContainer"]
+visible = false
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/PanelContainer/Lights/MarginContainer/VSplitContainer/LightOptions"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+tabs_visible = false
+
+[node name="AmbientOptions" type="Control" parent="MarginContainer/PanelContainer/Lights/MarginContainer/VSplitContainer/LightOptions/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/Lights/MarginContainer/VSplitContainer/LightOptions/TabContainer/AmbientOptions"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/Lights/MarginContainer/VSplitContainer/LightOptions/TabContainer/AmbientOptions/VBoxContainer"]
+layout_mode = 2
+text = "Ambient Light Settings"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/Lights/MarginContainer/VSplitContainer/LightOptions/TabContainer/AmbientOptions/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/Lights/MarginContainer/VSplitContainer/LightOptions/TabContainer/AmbientOptions/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Energy "
+vertical_alignment = 1
+
+[node name="AmbientEnergyReset" type="TextureButton" parent="MarginContainer/PanelContainer/Lights/MarginContainer/VSplitContainer/LightOptions/TabContainer/AmbientOptions/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture_normal = ExtResource("10_e2bq4")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="AmbientEnergySpinBox" type="SpinBox" parent="MarginContainer/PanelContainer/Lights/MarginContainer/VSplitContainer/LightOptions/TabContainer/AmbientOptions/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_icons/updown = SubResource("ImageTexture_8s71e")
+max_value = 16.0
+step = 0.01
+value = 1.0
+
+[node name="AmbientEnergySlider" type="HSlider" parent="MarginContainer/PanelContainer/Lights/MarginContainer/VSplitContainer/LightOptions/TabContainer/AmbientOptions/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 16.0
+step = 0.01
+value = 1.0
+ticks_on_borders = true
+
+[node name="OmniOptions" type="Control" parent="MarginContainer/PanelContainer/Lights/MarginContainer/VSplitContainer/LightOptions/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="SpotOptions" type="Control" parent="MarginContainer/PanelContainer/Lights/MarginContainer/VSplitContainer/LightOptions/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="DirectionalOptions" type="Control" parent="MarginContainer/PanelContainer/Lights/MarginContainer/VSplitContainer/LightOptions/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="FileLocationDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+auto_translate_mode = 1
+title = "Open a Directory"
+position = Vector2i(200, 56)
+size = Vector2i(705, 544)
+ok_button_text = "Select Current Folder"
+dialog_hide_on_ok = true
+file_mode = 2
+
+[node name="MaskFileDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+auto_translate_mode = 1
+title = "Open a File"
+position = Vector2i(200, 56)
+size = Vector2i(705, 544)
+ok_button_text = "Open"
+dialog_hide_on_ok = true
+file_mode = 0
+filters = PackedStringArray("*.svg", "*.png", "*.tga", "*.jpg", "*.jpeg", "*.webp", "*.dds")
+
+[node name="BackgroundImageDialog" type="FileDialog" parent="."]
+unique_name_in_owner = true
+auto_translate_mode = 1
+title = "Open a File"
+position = Vector2i(200, 56)
+size = Vector2i(705, 544)
+ok_button_text = "Open"
+dialog_hide_on_ok = true
+file_mode = 0
+filters = PackedStringArray("*.svg", "*.png", "*.tga", "*.jpg", "*.jpeg", "*.webp", "*.dds")
