@@ -1,0 +1,1 @@
+Godot Icon Forge allows you to create png, webp, or jpg images for use in your game or anywhere using the meshes, scenes, and images within your project. You pick the output size, file type, file name and directory. Options for a background color or image. Different borders (thanks to kenney) and border colors.
